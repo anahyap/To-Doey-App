@@ -1,0 +1,427 @@
+/* ==============================
+   DESIGN SYSTEM
+============================== */
+
+:root {
+    --brown-dark: #472C1B;
+    --brown-medium: #7D451B;
+
+    --mint: #C6ECAE;
+    --green: #3E8914;
+    --green-dark: #134611;
+
+    --off-white: #F5F5F0;
+    --white: #FFFFFF;
+
+    --error: #B3261E;
+
+    --space-xs: 6px;
+    --space-sm: 10px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+}
+
+
+/* ==============================
+   FORM
+============================== */
+
+#toDoForm {
+    display: flex;
+    gap: var(--space-sm);
+    width: 100%;
+}
+
+
+#toDoInput {
+    flex: 1;
+
+    padding: 12px 16px;
+
+    border: 2px solid var(--brown-dark);
+    border-radius: var(--radius-sm);
+}
+
+
+#addToDo {
+    padding: 12px 20px;
+
+    border: 2px solid var(--brown-dark);
+    border-radius: var(--radius-sm);
+
+    background: var(--mint);
+
+    cursor: pointer;
+}
+
+
+#addToDo:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+
+#addToDo:active {
+    transform: translateY(2px);
+}
+
+
+/* ==============================
+   ERROR MESSAGE
+============================== */
+
+.error-text {
+    color: var(--error);
+    min-height: 20px;
+}
+
+
+/* ==============================
+   FILTER BUTTONS
+============================== */
+
+.filter-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: var(--space-sm);
+
+    margin: var(--space-md) 0;
+
+    flex-wrap: wrap;
+}
+
+
+.filter-buttons button {
+    padding: 8px 14px;
+
+    border: 2px solid var(--brown-dark);
+    border-radius: 20px;
+
+    background: var(--off-white);
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.filter-buttons button:hover {
+    background: var(--mint);
+}
+
+
+.filter-buttons button:active {
+    transform: scale(0.96);
+}
+
+
+.filter-buttons button.active-filter {
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+
+/* ==============================
+   TODO LIST
+============================== */
+
+#todoList {
+    list-style: none;
+
+    padding: 0;
+    margin: var(--space-md) 0;
+
+    display: grid;
+
+    gap: 12px;
+}
+
+
+/* Each individual todo card */
+
+#todoList li {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-md);
+
+    padding: 14px 16px;
+
+    background: var(--white);
+
+    border: 2px solid var(--brown-dark);
+
+    border-radius: var(--radius-md);
+
+    box-shadow: 4px 4px 0 var(--brown-dark);
+}
+
+
+/* Task text */
+
+.task-text {
+    flex: 1;
+
+    cursor: pointer;
+}
+
+
+/* ==============================
+   COMPLETED TASK
+============================== */
+
+.completed .task-text {
+    text-decoration: line-through;
+
+    text-decoration-color: var(--error);
+
+    text-decoration-thickness: 2px;
+
+    opacity: 0.6;
+}
+
+
+/* ==============================
+   DELETE BUTTON
+============================== */
+
+.delete-btn {
+    opacity: 0;
+    visibility: hidden;
+
+    border: none;
+    background: transparent;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: opacity 0.2s ease;
+}
+
+
+/* Show X when hovering over todo */
+
+#todoList li:hover .delete-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.delete-btn:hover {
+    color: var(--error);
+}
+
+
+/* ==============================
+   EMPTY / LOADING STATUS
+============================== */
+
+.list-status {
+    text-align: center;
+
+    color: var(--brown-medium);
+
+    font-style: italic;
+
+    margin: var(--space-md) 0;
+}
+
+
+/* ==============================
+   ITEMS LEFT
+============================== */
+
+#itemsLeft {
+    font-weight: 600;
+
+    color: var(--green-dark);
+}
+
+
+/* ==============================
+   ORGANIZATION FEATURE
+============================== */
+
+.organization-card {
+    margin-top: var(--space-lg);
+
+    padding: var(--space-md);
+
+    border: 2px solid var(--brown-dark);
+
+    border-radius: var(--radius-md);
+
+    background: var(--off-white);
+
+    box-shadow: 4px 4px 0 var(--brown-dark);
+}
+
+
+.organization-heading {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: var(--space-sm);
+
+    font-weight: 600;
+}
+
+
+.organization-bar {
+    width: 100%;
+    height: 14px;
+
+    background: var(--white);
+
+    border: 2px solid var(--brown-dark);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+#organizationProgress {
+    width: 0%;
+    height: 100%;
+
+    background: var(--green);
+
+    transition: width 0.4s ease;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 768px) {
+
+    #toDoForm {
+        flex-direction: column;
+    }
+
+
+    .filter-buttons {
+        justify-content: center;
+    }
+
+
+    /* Phones do not have hover,
+       so keep delete button visible */
+
+    .delete-btn {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    #todoList li {
+        width: 100%;
+    }
+}
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: 18px 40px;
+
+    box-sizing: border-box;
+}
+
+
+/* Logo */
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+
+    color: var(--brown-dark);
+}
+
+
+/* Navigation links container */
+
+.nav ul {
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Navigation links */
+
+.nav a {
+    text-decoration: none;
+
+    color: var(--brown-dark);
+
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+
+/* Hover */
+
+.nav a:hover {
+    color: var(--green);
+}
+
+
+/* Click / active state */
+
+.nav a:active {
+    color: var(--green-dark);
+}
+
+
+/* ==============================
+   MOBILE NAVIGATION
+============================== */
+
+@media (max-width: 768px) {
+
+    .nav {
+        padding: 16px 20px;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .nav ul {
+        gap: 16px;
+    }
+
+}
+
+.logo-img {
+    width: 150px;
+    height: auto;
+    display: block;
+}

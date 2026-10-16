@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>To-Doey</title>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- ==============================
+         NAVIGATION
+    =============================== -->
+
+    <header>
+      <nav class="nav">
+        <img src="images/logo.png" alt="To-Doey Logo" class="logo-img" />
+
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">History</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ==============================
+         MAIN APP
+    =============================== -->
+
+    <main>
+      <section id="container">
+        <!-- ==============================
+                 APP HEADING
+            =============================== -->
+
+        <div class="todo-header">
+          <p>Add, track, and complete your daily tasks:</p>
+        </div>
+
+        <!-- ==============================
+                 ADD TODO FORM
+            =============================== -->
+
+        <form id="toDoForm">
+          <input type="text" id="toDoInput" placeholder="Add To The Agenda" />
+
+          <button type="submit" id="addToDo">Add</button>
+        </form>
+
+        <!-- Error Message -->
+
+        <p id="toDoError" class="error-text"></p>
+
+        <!-- ==============================
+                 FILTER BUTTONS
+            =============================== -->
+
+        <div class="filter-buttons">
+          <button type="button" id="allTasks">All</button>
+
+          <button type="button" id="active">Active</button>
+
+          <button type="button" id="completed">Completed</button>
+        </div>
+
+        <!-- ==============================
+                 EMPTY / LOADING STATUS
+            =============================== -->
+
+        <p id="listStatus" class="list-status"></p>
+
+        <!-- ==============================
+                 TODO LIST
+            =============================== -->
+
+        <ul id="todoList"></ul>
+
+        <!-- ==============================
+                 ITEMS LEFT SUMMARY
+            =============================== -->
+
+        <p id="itemsLeft"></p>
+
+        <!-- ==============================
+                 EXPERIMENTAL FEATURE
+                 ORGANIZATION LEVEL
+            =============================== -->
+
+        <div class="organization-card">
+          <div class="organization-heading">
+            <span> Level of Organization </span>
+
+            <span id="organizationLevel"> 0/10 </span>
+          </div>
+
+          <div class="organization-bar">
+            <div id="organizationProgress"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
